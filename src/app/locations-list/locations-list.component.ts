@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {locations} from '../locations';
 
 @Component({
   selector: 'app-locations-list',
@@ -7,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class LocationsListComponent implements OnInit {
+  locations = locations;
 
   constructor() { }
 
   ngOnInit() {
   }
-
 }

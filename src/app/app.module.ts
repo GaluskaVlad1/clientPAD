@@ -7,6 +7,7 @@ import {TopBarComponent} from './top-bar/top-bar.component';
 import {LocationsListComponent} from './locations-list/locations-list.component';
 import {LoginComponent} from './login/login.component';
 import {ReactiveFormsModule} from '@angular/forms';
+import {AddLocationComponent} from './add-location/add-location.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +15,15 @@ import {ReactiveFormsModule} from '@angular/forms';
     TopBarComponent,
     LocationsListComponent,
     LoginComponent,
+    AddLocationComponent,
   ],
   imports: [
     BrowserModule,
     RouterModule,
     RouterModule.forRoot([
       {path: '', component: LoginComponent},
-      {path: 'user/loggedin', component: LocationsListComponent}
+      {path: 'user/loggedin', component: LocationsListComponent},
+      {path: 'addLocation', component: AddLocationComponent},
     ]),
     ReactiveFormsModule
   ],

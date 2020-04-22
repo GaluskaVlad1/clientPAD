@@ -1,1 +1,11 @@
 <app-top-bar></app-top-bar>
+<h1> Locatii </h1>
+<div *ngFor="let location of locations">
+  <h2>
+    {{location.name}} from {{location.city}}
+  </h2>
+  <p *ngIf="location.description">
+    {{location.description}}
+  </p>
+</div>
+

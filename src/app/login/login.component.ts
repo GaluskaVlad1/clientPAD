@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Output} from '@angular/core';
 import {FormBuilder} from '@angular/forms';
 import {Router} from '@angular/router';
 
@@ -8,9 +8,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
   loginForm;
-
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
@@ -29,5 +27,4 @@ export class LoginComponent implements OnInit {
     // tslint:disable-next-line:no-unused-expression
     this.router.navigate(['user/loggedin']), {relativeTo: this.router};
   }
-
 }
