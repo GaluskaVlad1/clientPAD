@@ -8,6 +8,8 @@
 }
 
 body {
+  background-image: url("forests.png");
+  background-repeat: no-repeat;
   margin: 0;
 }
 
@@ -23,18 +25,20 @@ router-outlet + *  {
 /* Text */
 
 h1 {
-  font-size: 32px;
+  font-size: 36px;
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 28px;
 }
 
 h1, h2 {
+  text-align: center;
   font-weight: lighter;
 }
 
 p {
+  text-align: center;
   font-size: 14px;
 }
 
