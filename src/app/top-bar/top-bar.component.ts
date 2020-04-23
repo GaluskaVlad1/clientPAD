@@ -18,4 +18,8 @@ export class TopBarComponent implements OnInit {
     // tslint:disable-next-line:no-unused-expression
     this.router.navigate(['addLocation']), {relativeTo: this.router};
   }
+  goToCategories(){
+    // tslint:disable-next-line:no-unused-expression
+    this.router.navigate(['goToCategories']), {relativeTo: this.router};
+  }
 }
