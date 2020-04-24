@@ -9,6 +9,7 @@ import {LoginComponent} from './login/login.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {AddLocationComponent} from './add-location/add-location.component';
 import {CategoriesListComponent } from './categories-list/categories-list.component';
+import { LocationsByCategoryComponent } from './locations-by-category/locations-by-category.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {CategoriesListComponent } from './categories-list/categories-list.compon
     LoginComponent,
     AddLocationComponent,
     CategoriesListComponent,
+    LocationsByCategoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,6 +29,7 @@ import {CategoriesListComponent } from './categories-list/categories-list.compon
       {path: 'user/loggedin', component: LocationsListComponent},
       {path: 'addLocation', component: AddLocationComponent},
       {path: 'goToCategories', component: CategoriesListComponent},
+      {path: 'category/:categoryId', component: LocationsByCategoryComponent},
     ]),
     ReactiveFormsModule
   ],

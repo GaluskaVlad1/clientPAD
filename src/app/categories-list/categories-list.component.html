@@ -1,9 +1,9 @@
 <app-top-bar></app-top-bar>
 <h1> Categorii </h1>
-<div *ngFor="let categorie of categories">
-  <h2>
-    {{categorie.name}}
-  </h2>
+<div *ngFor="let categorie of categories; index as categoryId">
+  <div style = "text-align:center">
+    <a class = "button fancy-button" [routerLink]="['/category',categoryId]">{{categorie.name}}</a>
+  </div>
   <p *ngIf="categorie.description">
    Descriere : {{categorie.description}}
   </p>

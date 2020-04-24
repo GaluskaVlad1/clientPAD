@@ -9,9 +9,11 @@ import {locations} from '../locations';
 
 export class LocationsListComponent implements OnInit {
   locations = locations;
-
+  isAdmin = true;
   constructor() { }
 
   ngOnInit() {
+  }
+  delete(locationId: number){
   }
 }

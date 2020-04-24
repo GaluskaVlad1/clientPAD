@@ -1,3 +1,4 @@
+<a class = "button fancy-button" [routerLink]="['/user/loggedin']">Home</a>
 <a class = "button fancy-button" (click)="goToCategories()">Categories</a>
 <a *ngIf="isAdmin" class = "button fancy-button" (click)="addLocation()">Add Location</a>
-<a class = "button fancy-button">Logout</a>
+<a class = "button fancy-button" [routerLink]="['']">Logout</a>

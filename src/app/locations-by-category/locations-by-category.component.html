@@ -1,0 +1,16 @@
+<app-top-bar></app-top-bar>
+<div *ngFor="let location of locations; index as locationId">
+  <div *ngIf="location.category == categoryId">
+    <h2>
+      {{location.name}} from {{location.city}}
+    </h2>
+    <p *ngIf="location.description">
+     {{location.description}}
+    </p>
+    <div *ngIf="isAdmin">
+     <div style = "text-align:center">
+        <a class="button fancy-button" (click)="delete(locationId)">Delete Location</a>
+      </div>
+    </div>
+  </div>
+</div>
