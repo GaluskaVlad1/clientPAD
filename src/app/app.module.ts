@@ -10,7 +10,10 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {AddLocationComponent} from './add-location/add-location.component';
 import {CategoriesListComponent } from './categories-list/categories-list.component';
 import { LocationsByCategoryComponent } from './locations-by-category/locations-by-category.component';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
+// @ts-ignore
+// @ts-ignore
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,6 +27,7 @@ import { LocationsByCategoryComponent } from './locations-by-category/locations-
   imports: [
     BrowserModule,
     RouterModule,
+    HttpClientModule,
     RouterModule.forRoot([
       {path: '', component: LoginComponent},
       {path: 'user/loggedin', component: LocationsListComponent},
