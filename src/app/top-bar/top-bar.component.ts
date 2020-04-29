@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {LoginService} from '../login-service';
 
 @Component({
   selector: 'app-top-bar',
@@ -8,11 +9,18 @@ import {Router} from '@angular/router';
 })
 
 export class TopBarComponent implements OnInit {
-  isAdmin = true;
-  constructor(private router: Router) {
+  isAdmin;
+  constructor(
+    private router: Router,
+    public loginService: LoginService,
+  ){
   }
 
   ngOnInit() {
+    this.loginService.isAdmin.subscribe(value => {
+      this.isAdmin = value;
+      console.log(this.isAdmin);
+    });
   }
   addLocation(){
     // tslint:disable-next-line:no-unused-expression
