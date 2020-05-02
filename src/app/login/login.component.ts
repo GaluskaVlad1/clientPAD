@@ -27,6 +27,11 @@ export class LoginComponent implements OnInit {
     );
   }
 
+  goToRegister(){
+    // tslint:disable-next-line:no-unused-expression
+    this.router.navigate(['register']), {relativeTo: this.router};
+  }
+
   ngOnInit() {
   }
 

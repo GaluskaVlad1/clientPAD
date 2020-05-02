@@ -8,23 +8,20 @@
 <div>
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
     <div class = "center-top">
-      <label for="username">
-        Username
-      </label>
+      <label for="username">Username</label>
       <input id="username" type="text" formControlName="username">
     </div>
     <div class = "center-bottom">
-      <label for="password">
-        Password
-      </label>
+      <label for="password">Password</label>
       <input id="password" type="password" formControlName="password">
     </div>
     <div style = "text-align:center">
     <button class ="button" type = "submit">Login</button>
       <p>  </p>
-    <button class = "button">Register</button>
+    <button class = "button" (click)="goToRegister()">Register</button>
     </div>
   </form>
 </div>
 </body>
 </html>
+

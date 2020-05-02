@@ -11,6 +11,7 @@ import {AddLocationComponent} from './add-location/add-location.component';
 import {CategoriesListComponent } from './categories-list/categories-list.component';
 import { LocationsByCategoryComponent } from './locations-by-category/locations-by-category.component';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { RegisterComponent } from './register/register.component';
 
 // @ts-ignore
 // @ts-ignore
@@ -23,6 +24,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
     AddLocationComponent,
     CategoriesListComponent,
     LocationsByCategoryComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
       {path: 'addLocation', component: AddLocationComponent},
       {path: 'goToCategories', component: CategoriesListComponent},
       {path: 'category/:categoryId', component: LocationsByCategoryComponent},
+      {path: 'register', component: RegisterComponent},
     ]),
     ReactiveFormsModule
   ],
