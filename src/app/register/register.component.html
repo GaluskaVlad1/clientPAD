@@ -9,17 +9,19 @@
     <p>Please fill in this form to create an account.</p>
     <hr>
     <div>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm.value)">
     <div class="centerInputs">
       <label for="username">Username</label>
-      <input id="username" type="text" placeholder="Enter your username" formControlName="new_username">
+      <input id="username" type="text" placeholder="Enter your username" formControlName="username">
     </div>
     <div class="centerInputs">
       <label for="password">Password</label>
-      <input id="password" type="password" placeholder="Enter your password" formControlName="new_password">
+      <input id="password" type="password" placeholder="Enter your password" formControlName="password">
     </div>
     <div class="centerButtons">
-        <button type="submit">Sign Up</button>
+        <button class="button" type="submit">Sign Up</button>
     </div>
+      </form>
   </div>
 </body>
 </html>

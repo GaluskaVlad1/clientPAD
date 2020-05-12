@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {locations} from '../locations';
+import {LoginService} from '../login-service';
 
 @Component({
   selector: 'app-locations-list',
@@ -9,10 +10,13 @@ import {locations} from '../locations';
 
 export class LocationsListComponent implements OnInit {
   locations = locations;
-  isAdmin = true;
-  constructor() { }
+  isAdmin ;
+  constructor(private loginService: LoginService) {}
 
   ngOnInit() {
+    this.loginService.isAdmin.subscribe(value => {
+      this.isAdmin = value;
+    });
   }
   delete(locationId: number){
   }

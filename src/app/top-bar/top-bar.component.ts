@@ -12,14 +12,13 @@ export class TopBarComponent implements OnInit {
   isAdmin;
   constructor(
     private router: Router,
-    public loginService: LoginService,
+    private loginService: LoginService,
   ){
   }
 
   ngOnInit() {
     this.loginService.isAdmin.subscribe(value => {
       this.isAdmin = value;
-      console.log(this.isAdmin);
     });
   }
   addLocation(){

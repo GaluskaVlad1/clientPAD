@@ -13,7 +13,6 @@ import {LoginResponse} from '../responses';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginResponse: Observable<User>;
   loginForm;
   user: User;
   constructor(
@@ -39,11 +38,11 @@ export class LoginComponent implements OnInit {
 
   onSubmit(clientData) {
     // Not working yet
-    this.user = new User(this.loginForm.get('username'), this.loginForm.get('password'));
+    this.user = new User(this.loginForm.get('username').value, this.loginForm.get('password').value);
     this.http.post<LoginResponse>('http://localhost:8080/login' , this.user)
       .subscribe(resp => {
         if (resp.loginSuccess){
-          this.loginService.setAdmin(resp.isAdmin);
+          this.loginService.setAdmin(resp.admin);
           this.loginService.setLogged(resp.loginSuccess);
           // tslint:disable-next-line:no-unused-expression
           this.router.navigate(['/user/loggedin']), {relativeTo: this.router};

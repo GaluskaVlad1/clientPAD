@@ -4,6 +4,6 @@ export class User{
     this.password = password;
   }
 
-  private username: string;
-  private password: string;
+  public username: string;
+  public password: string;
 }
