@@ -2,9 +2,10 @@ import {Component, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder} from '@angular/forms';
 import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
-import {LoginResponse} from '../LoginResponse';
+import {User} from '../user';
 import {Observable} from 'rxjs';
 import {LoginService} from '../login-service';
+import {LoginResponse} from '../responses';
 
 @Component({
   selector: 'app-login',
@@ -12,8 +13,9 @@ import {LoginService} from '../login-service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  loginResponse: Observable<LoginResponse>;
+  loginResponse: Observable<User>;
   loginForm;
+  user: User;
   constructor(
     private router: Router,
     private formBuilder: FormBuilder,
@@ -37,14 +39,14 @@ export class LoginComponent implements OnInit {
 
   onSubmit(clientData) {
     // Not working yet
-    this.http.get<LoginResponse>('http://localhost:8080/login?username=' +
-      this.loginForm.get('username').value + '&password=' + this.loginForm.get('password').value)
+    this.user = new User(this.loginForm.get('username'), this.loginForm.get('password'));
+    this.http.post<LoginResponse>('http://localhost:8080/login' , this.user)
       .subscribe(resp => {
         if (resp.loginSuccess){
-        this.loginService.setAdmin(true);
-        this.loginService.setLogged(resp.loginSuccess);
-        // tslint:disable-next-line:no-unused-expression
-        this.router.navigate(['/user/loggedin']), {relativeTo: this.router};
+          this.loginService.setAdmin(resp.isAdmin);
+          this.loginService.setLogged(resp.loginSuccess);
+          // tslint:disable-next-line:no-unused-expression
+          this.router.navigate(['/user/loggedin']), {relativeTo: this.router};
       }else{
         window.alert('Wrong username or password!');
       }
