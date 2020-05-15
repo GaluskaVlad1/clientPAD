@@ -2,7 +2,7 @@
 <h1> Categorii </h1>
 <div *ngFor="let categorie of categories; index as categoryId">
   <div style = "text-align:center">
-    <a class = "button fancy-button" [routerLink]="['/category',categoryId]">{{categorie.name}}</a>
+    <a class = "button fancy-button" [routerLink]="['/category',categorie.name]">{{categorie.name}}</a>
   </div>
   <p *ngIf="categorie.description">
    Descriere : {{categorie.description}}

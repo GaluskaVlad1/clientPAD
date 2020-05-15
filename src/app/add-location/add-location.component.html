@@ -2,20 +2,20 @@
 
 <div>
   <form [formGroup]="locationForm" (ngSubmit)="onSubmit(locationForm.value)">
-    <div class = "center-top">
+    <div>
       <label for="title">Title</label>
       <input id="title" type="text" formControlName="title">
     </div>
-    <div class = "center-bottom">
+    <div>
       <label for="description">Description</label>
       <input id="description" type="description" formControlName="description">
     </div>
-    <div class = "center-bottom">
-      <label for="category">Category</label>
-      <input id="category" type="text" formControlName="category">
-    </div>
-    <label for="image">Image</label>
-    <input id="image" class="file-input" type="file" formControlName="image">
+    <select formControlName="category">
+      <option value="" disabled>Choose category</option>
+      <option>Mountains</option>
+      <option>Sea</option>
+      <option>Danube</option>
+    </select>
     <div style = "text-align:center">
       <button class ="button" type = "submit">Add Location</button>
     </div>

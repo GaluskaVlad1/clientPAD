@@ -1,13 +1,13 @@
 export class RomanianLocation{
   public title: string;
-  public image: HTMLImageElement;
   public description: string;
   public category: string;
+  public comment: string;
 
-  constructor(title: string, image: HTMLImageElement, description: string, category: string) {
+  constructor(title: string, description: string, category: string, comment: string) {
     this.title = title;
-    this.image = image;
     this.description = description;
     this.category = category;
+    this.comment = comment;
   }
 }

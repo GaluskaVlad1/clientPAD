@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
         if (resp.loginSuccess){
           this.loginService.setAdmin(resp.admin);
           this.loginService.setLogged(resp.loginSuccess);
+          this.loginService.setUsername(this.loginForm.get('username').value);
           // tslint:disable-next-line:no-unused-expression
           this.router.navigate(['/user/loggedin']), {relativeTo: this.router};
       }else{

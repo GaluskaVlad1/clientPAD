@@ -1,16 +1,27 @@
 <app-top-bar></app-top-bar>
+<h1> Locatii </h1>
 <div *ngFor="let location of locations; index as locationId">
-  <div *ngIf="location.category == categoryId">
-    <h2>
-      {{location.name}} from {{location.city}}
-    </h2>
-    <p *ngIf="location.description">
-     {{location.description}}
-    </p>
-    <div *ngIf="isAdmin">
-     <div style = "text-align:center">
-        <a class="button fancy-button" (click)="delete(locationId)">Delete Location</a>
-      </div>
+  <h2>
+    {{location.title}}
+  </h2>
+  <p *ngIf="location.description">
+    {{location.description}}
+  </p>
+  <p *ngIf="location.comment!=null">
+    {{location.comment}}
+  </p>
+  <form [formGroup]="commentForm" (ngSubmit)="onSubmit(commentForm.value,location)">
+    <div class = "center-bottom">
+      <label for="comment">Comment</label>
+      <input id="comment" type="comment" formControlName="comment">
+    </div>
+    <div style = "text-align:center">
+      <button class ="button" type = "submit">Post Comment!</button>
+    </div>
+  </form>
+  <div *ngIf="isAdmin"><
+    <div style = "text-align:center">
+      <a class="button fancy-button" (click)="delete(location)">Delete Location</a>
     </div>
   </div>
 </div>

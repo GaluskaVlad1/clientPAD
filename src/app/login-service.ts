@@ -9,6 +9,8 @@ export class LoginService {
   isAdmin = this.isAdminSubject.asObservable();
   private isLoggedSubject: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   isLogged = this.isLoggedSubject.asObservable();
+  private usernameObs: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  username = this.usernameObs.asObservable();
   constructor() { }
 
   public setAdmin(value: boolean){
@@ -16,5 +18,8 @@ export class LoginService {
   }
   public setLogged(value: boolean){
     this.isLoggedSubject.next(value);
+  }
+  public setUsername(value: string){
+    this.usernameObs.next(value);
   }
 }

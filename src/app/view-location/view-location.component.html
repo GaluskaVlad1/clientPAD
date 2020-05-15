@@ -1,18 +1,13 @@
 <app-top-bar></app-top-bar>
-<h1> Locatii </h1>
-<div *ngFor="let location of locations; index as locationId">
   <h2>
     {{location.title}}
   </h2>
   <p *ngIf="location.description">
     {{location.description}}
   </p>
-  <p *ngIf="location.comment!=null">
-    {{location.comment}}
-  </p>
-  <div style = "text-align:center">
-    <a class = "button fancy-button" [routerLink]="['/location',location.title]">View Location!</a>
-  </div>
+<a *ngFor="let comment of comments">
+  <p>{{comment}}</p>
+</a>
   <form [formGroup]="commentForm" (ngSubmit)="onSubmit(commentForm.value,location)">
     <div class = "center-bottom">
       <label for="comment">Comment</label>
@@ -22,10 +17,3 @@
       <button class ="button" type = "submit">Post Comment!</button>
     </div>
   </form>
-  <div *ngIf="isAdmin"><
-    <div style = "text-align:center">
-     <a class="button fancy-button" (click)="delete(location)">Delete Location</a>
-    </div>
-  </div>
-</div>
-

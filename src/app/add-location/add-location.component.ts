@@ -3,7 +3,7 @@ import {FormBuilder} from '@angular/forms';
 import {RomanianLocation} from '../RomanianLocation';
 import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
-import {LocationAddSuccess, LoginResponse} from '../responses';
+import {LocationAddSuccess, LoginResponse, RegisterResponse} from '../responses';
 @Component({
   selector: 'app-add-location',
   templateUrl: './add-location.component.html',
@@ -18,7 +18,6 @@ export class AddLocationComponent implements OnInit {
     this.locationForm = this.formBuilder.group({
         title: '',
         description: '',
-        image: '',
         category: '',
       }
     );
@@ -27,13 +26,14 @@ export class AddLocationComponent implements OnInit {
   }
 
   onSubmit(data){
-    this.loc = new RomanianLocation(this.locationForm.get('title').value, this.locationForm.get('image').value,
-                            this.locationForm.get('description').value, this.locationForm.get('category'));
-    this.http.post<LocationAddSuccess>('http://localhost:8080/addLocation' , this.loc)
+    this.loc = new RomanianLocation(this.locationForm.get('title').value,
+                            this.locationForm.get('description').value, this.locationForm.get('category').value, null);
+    this.http.post<RegisterResponse>('http://localhost:8080/addLocation' , this.loc)
       .subscribe(resp => {
-        if (resp.add){
+        if (resp.register) {
           window.alert('Location added succsesfully!');
-          window.location.reload();
+          // tslint:disable-next-line:no-unused-expression
+          this.router.navigate(['/user/loggedin']), {relativeTo: this.router};
         }else{
           window.alert('Failed to add location!');
         }
