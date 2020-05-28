@@ -9,8 +9,8 @@
   <p>{{comment}}</p>
 </a>
   <form [formGroup]="commentForm" (ngSubmit)="onSubmit(commentForm.value,location)">
-    <div class = "center-bottom">
-      <label for="comment">Comment</label>
+    <div style="display:flex;justify-content: center;">
+      <label for="comment"></label>
       <input id="comment" type="comment" formControlName="comment">
     </div>
     <div style = "text-align:center">
